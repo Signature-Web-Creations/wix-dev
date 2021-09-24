@@ -13,6 +13,7 @@ $w.onReady(async function () {
     $item('#eventWeekDay').text = moment(event.start).format('ddd')
     $item('#eventDay').text = moment(event.start).format('D')
     $item('#eventTitle').text = event.name
+    $item('#eventHost').text = event.host_organization
     $item('#eventLocation').text = event.city + ', ' + event.state
     $item('#eventTime').text =
       moment(event.start).format('H:mm a') +
