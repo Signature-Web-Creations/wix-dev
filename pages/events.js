@@ -7,6 +7,16 @@ $w.onReady(async function () {
   console.log(events)
 
   $w('#wu247UpcomingEvents').forEachItem(($item, itemData, index) => {
-    $item('#eventMonth').text = moment(events[index].start).format('MMM')
+    const event = events[index]
+
+    $item('#eventMonth').text = moment(event.start).format('MMM')
+    $item('#eventWeekDay').text = moment(event.start).format('ddd')
+    $item('#eventDay').text = moment(event.start).format('D')
+    $item('#eventTitle').text = event.name
+    $item('#eventLocation').text = event.city + ', ' + event.state
+    $item('#eventTime').text =
+      moment(event.start).format('H:mm a') +
+      ' - ' +
+      moment(event.end).format('H:mm a')
   })
 })
