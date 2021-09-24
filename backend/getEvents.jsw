@@ -13,13 +13,13 @@ function getApiToken(baseURL, key, secret) {
     .catch(error => console.log(error))
 }
 
-export async function eventList() {
+export async function eventList(limit) {
   const baseURL = 'https://api.whatsup247.com'
-  const url =
-    baseURL +
-    '/event?organization_id=bc3151c84f9362a8cedfc0d94abf9fd3&copromotion=1'
   const key = await getSecret("wu247_api_key")
   const secret = await getSecret("wu247_api_secret")
+  const url =
+  baseURL +
+    '/event?organization_id=bc3151c84f9362a8cedfc0d94abf9fd3&copromotion=1&limit=' + limit
 
   const token = await getApiToken(baseURL, key, secret)
   return fetch(url, {
